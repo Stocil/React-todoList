@@ -2,6 +2,7 @@ import { useRef } from "react";
 
 function Input() {
   const labelRef = useRef(null);
+  const inputRef = useRef(null);
 
   return (
     <section className="input">
@@ -12,18 +13,22 @@ function Input() {
           <label className="input__label" htmlFor="new-todo" ref={labelRef}>
             Todo name
           </label>
+
           <input
+            ref={inputRef}
             className="input__input"
             type="text"
             id="new-todo"
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}
             onKeyDown={(e) => {
-              if (e.key === "Enter") handleClickAdd(e);
+              if (e.key === "Enter") handleClickAdd();
             }}
           />
 
-          {/* TODO Create add button*/}
+          <button className="input__button" onClick={handleClickAdd}>
+            +
+          </button>
         </div>
       </div>
     </section>
@@ -35,17 +40,21 @@ function Input() {
     e.target.style.borderColor = "#e7adf9";
   }
 
-  function handleInputBlur(e) {
-    if (e.target.value !== "") return;
+  function handleInputBlur() {
+    if (inputRef.current.value !== "") return;
+
+    inputRef.current.blur();
 
     labelRef.current.style.bottom = "10px";
     labelRef.current.style.color = "#959595";
-    e.target.style.borderColor = "black";
+    inputRef.current.style.borderColor = "black";
   }
 
-  function handleClickAdd(e) {
-    console.log("Add " + e.target.value + " todo");
-    e.target.value = "";
+  function handleClickAdd() {
+    console.log("Add " + inputRef.current.value + " todo");
+    inputRef.current.value = "";
+
+    handleInputBlur();
 
     // TODO add to todoList array
   }
