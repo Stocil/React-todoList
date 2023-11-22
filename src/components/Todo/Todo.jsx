@@ -1,6 +1,10 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-function Todo() {
+function Todo(props) {
+  const { content } = props;
+
+  // TODO: Remove state, get variable through props
   const [complite, setComplite] = useState(false);
 
   const linesClass = complite
@@ -8,7 +12,7 @@ function Todo() {
     : "todo__button-line";
 
   return (
-    <div className="todo">
+    <li className="todo__item">
       <div className="todo__button" onClick={handleCompliteClick}>
         <div className={linesClass}></div>
         <div className={linesClass}></div>
@@ -16,13 +20,19 @@ function Todo() {
         <div className={linesClass}></div>
       </div>
 
-      <p className="todo__text">Test todo</p>
-    </div>
+      <p className="todo__text">{content}</p>
+    </li>
   );
+
+  // TODO: Remove handleClick and get change reducer function through the props
 
   function handleCompliteClick() {
     setComplite(!complite);
   }
 }
+
+Todo.propTypes = {
+  content: PropTypes.string,
+};
 
 export default Todo;
