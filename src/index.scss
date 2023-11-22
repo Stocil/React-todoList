@@ -1,3 +1,5 @@
+$font-stack-main: "Montserrat", sans-serif;
+
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -25,8 +27,13 @@ img {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-stack-main;
   font-size: 18px;
   font-weight: 400;
   color: black;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }

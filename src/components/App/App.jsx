@@ -1,7 +1,7 @@
-import "./App.scss";
+import Input from "../Input/Input";
 
 function App() {
-  return <h1 className="stas">Vite + React + Stas = Hello World</h1>;
+  return <Input />;
 }
 
 export default App;

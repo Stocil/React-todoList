@@ -1,0 +1,40 @@
+$font-stack-main: "Montserrat", sans-serif;
+
+.input {
+  margin-top: 100px;
+
+  &__title {
+    font-size: 68px;
+  }
+
+  &__group {
+    margin-top: 50px;
+    position: relative;
+  }
+
+  &__label {
+    color: #959595;
+    position: absolute;
+
+    bottom: 10px;
+
+    transition: bottom 0.2s ease-in-out, color 0.3s ease-in-out;
+  }
+
+  &__input {
+    border: none;
+    border-bottom: 2px solid black;
+
+    width: 500px;
+    padding-bottom: 10px;
+
+    font-family: $font-stack-main;
+    font-size: 18px;
+
+    transition: border-color 0.3s ease-in-out;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
