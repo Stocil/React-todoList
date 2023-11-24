@@ -1,6 +1,12 @@
 import { useRef } from "react";
+import PropTypes from "prop-types";
 
-function Input() {
+import { handleInputBlur } from "./utils/utils";
+import { handleInputFocus } from "./utils/utils";
+
+function Input(props) {
+  const { onAdd } = props;
+
   const labelRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -19,8 +25,8 @@ function Input() {
             className="input__input"
             type="text"
             id="new-todo"
-            onFocus={handleInputFocus}
-            onBlur={handleInputBlur}
+            onFocus={() => handleInputFocus(labelRef.current)}
+            onBlur={() => handleInputBlur(inputRef.current, labelRef.current)}
             onKeyDown={(e) => {
               if (e.key === "Enter") handleClickAdd();
             }}
@@ -34,30 +40,27 @@ function Input() {
     </section>
   );
 
-  function handleInputFocus(e) {
-    labelRef.current.style.bottom = "40px";
-    labelRef.current.style.color = "#e7adf9";
-    e.target.style.borderColor = "#e7adf9";
-  }
-
-  function handleInputBlur() {
-    if (inputRef.current.value !== "") return;
-
-    inputRef.current.blur();
-
-    labelRef.current.style.bottom = "10px";
-    labelRef.current.style.color = "#959595";
-    inputRef.current.style.borderColor = "black";
-  }
-
   function handleClickAdd() {
-    console.log("Add " + inputRef.current.value + " todo");
+    const date = new Date();
+    const id =
+      "" +
+      date.getFullYear() +
+      date.getMonth() +
+      date.getDate() +
+      date.getHours() +
+      date.getMinutes() +
+      date.getSeconds();
+
+    onAdd(inputRef.current.value, +id);
+
     inputRef.current.value = "";
 
-    handleInputBlur();
-
-    // TODO add to todoList array
+    handleInputBlur(inputRef.current, labelRef.current);
   }
 }
+
+Input.propTypes = {
+  onAdd: PropTypes.func,
+};
 
 export default Input;

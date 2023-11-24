@@ -1,13 +1,18 @@
 import Todo from "../Todo/Todo";
-import initialTasks from "../../initialTasks";
-import { useState } from "react";
+import PropTypes from "prop-types";
 
-function TodoList() {
-  // TODO: up the state to the filteredTodoList component and also create reducer
-  const [todos, setTodos] = useState(initialTasks);
+function TodoList(props) {
+  const { todos, onRemove, onComplite } = props;
 
   const tasks = todos.map((todo) => {
-    return <Todo content={todo.task} key={todo.id} />;
+    return (
+      <Todo
+        todo={todo}
+        onRemove={onRemove}
+        onComplite={onComplite}
+        key={todo.id}
+      />
+    );
   });
 
   return (
@@ -18,5 +23,11 @@ function TodoList() {
     </section>
   );
 }
+
+TodoList.propTypes = {
+  todos: PropTypes.array,
+  onRemove: PropTypes.func,
+  onComplite: PropTypes.func,
+};
 
 export default TodoList;
