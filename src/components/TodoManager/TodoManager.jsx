@@ -21,7 +21,7 @@ function TodoManager() {
     </>
   );
 
-  // TOOD: make hook for dispatches
+  // TOOD: make hook for dispatches, create Context
 
   function handleAddTodo(task, id) {
     dispatch({
@@ -31,8 +31,10 @@ function TodoManager() {
     });
   }
 
-  function handleRemoveTodo(id) {
-    dispatch({
+  function handleRemoveTodo(id, elem) {
+    console.log(elem.classList.add("removed"));
+
+    setTimeout(dispatch, 600, {
       type: "remove",
       id: id,
     });
