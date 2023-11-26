@@ -1,0 +1,71 @@
+.todo {
+  &__check-button {
+    cursor: pointer;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+
+    position: relative;
+
+    &-line {
+      content: "";
+      position: absolute;
+      background-color: black;
+
+      transition: transform 0.3s ease-in-out, height 0.3s ease-in-out,
+        width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+      &:nth-child(1) {
+        top: 0;
+        left: 0;
+
+        width: 20px;
+        height: 2px;
+
+        &.complite {
+          transform: translateX(7px) translateY(7px) rotate(-45deg);
+          background-color: #65db3b;
+        }
+      }
+
+      &:nth-child(2) {
+        right: 0;
+
+        width: 2px;
+        height: 20px;
+
+        &.complite {
+          transform: translateX(-2px) translateY(-2px) rotate(45deg);
+          background-color: #65db3b;
+        }
+      }
+
+      &:nth-child(3) {
+        bottom: 0;
+        left: 0;
+
+        width: 20px;
+        height: 2px;
+
+        &.complite {
+          width: 13px;
+          transform: translateX(0px) translateY(-8.5px) rotate(45deg);
+          background-color: #65db3b;
+        }
+      }
+
+      &:nth-child(4) {
+        left: 0;
+
+        width: 2px;
+        height: 20px;
+
+        &.complite {
+          height: 13px;
+          transform: translateX(5.5px) translateY(4px) rotate(-45deg);
+          background-color: #65db3b;
+        }
+      }
+    }
+  }
+}

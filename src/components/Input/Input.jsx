@@ -1,11 +1,13 @@
-import { useRef } from "react";
-import PropTypes from "prop-types";
+import { useContext, useRef } from "react";
 
+import useManageTodo from "../../hooks/useManageTodo";
 import { handleInputBlur } from "./utils/utils";
 import { handleInputFocus } from "./utils/utils";
+import { TodoDispatchContext } from "../../context/tasksContextReducer";
 
-function Input(props) {
-  const { onAdd } = props;
+function Input() {
+  const dispatch = useContext(TodoDispatchContext);
+  const { handleAddTodo } = useManageTodo(dispatch);
 
   const labelRef = useRef(null);
   const inputRef = useRef(null);
@@ -28,11 +30,23 @@ function Input(props) {
             onFocus={() => handleInputFocus(labelRef.current)}
             onBlur={() => handleInputBlur(inputRef.current, labelRef.current)}
             onKeyDown={(e) => {
-              if (e.key === "Enter") handleClickAdd();
+              if (
+                e.key === "Enter" &&
+                inputRef.current &&
+                inputRef.current.value
+              )
+                handleClickAdd();
             }}
           />
 
-          <button className="input__button" onClick={handleClickAdd}>
+          <button
+            className="input__button"
+            onClick={() => {
+              if (inputRef.current && inputRef.current.value) {
+                handleClickAdd();
+              }
+            }}
+          >
             +
           </button>
         </div>
@@ -51,16 +65,12 @@ function Input(props) {
       date.getMinutes() +
       date.getSeconds();
 
-    onAdd(inputRef.current.value, +id);
+    handleAddTodo(inputRef.current.value, +id);
 
     inputRef.current.value = "";
 
     handleInputBlur(inputRef.current, labelRef.current);
   }
 }
-
-Input.propTypes = {
-  onAdd: PropTypes.func,
-};
 
 export default Input;

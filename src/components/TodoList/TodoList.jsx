@@ -1,19 +1,16 @@
-import Todo from "../Todo/Todo";
-import PropTypes from "prop-types";
+import { useContext } from "react";
 
-function TodoList(props) {
-  const { todos, onRemove, onComplite } = props;
+import Todo from "../Todo/Todo";
+import { TodoContext } from "../../context/tasksContextReducer";
+
+function TodoList() {
+  const todos = useContext(TodoContext);
 
   const tasks = todos.map((todo) => {
-    return (
-      <Todo
-        todo={todo}
-        onRemove={onRemove}
-        onComplite={onComplite}
-        key={todo.id}
-      />
-    );
+    return <Todo todo={todo} key={todo.id} />;
   });
+
+  console.log(todos);
 
   return (
     <section className="todos">
@@ -23,11 +20,5 @@ function TodoList(props) {
     </section>
   );
 }
-
-TodoList.propTypes = {
-  todos: PropTypes.array,
-  onRemove: PropTypes.func,
-  onComplite: PropTypes.func,
-};
 
 export default TodoList;

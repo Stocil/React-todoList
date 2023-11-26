@@ -1,32 +1,31 @@
+import { useContext, useRef } from "react";
 import PropTypes from "prop-types";
-import { useRef } from "react";
+
+import useManageTodo from "../../hooks/useManageTodo";
+import TodoChekbox from "../TodoCheckbox/TodoCheckbox";
+import { TodoDispatchContext } from "../../context/tasksContextReducer";
 
 function Todo(props) {
-  const { todo, onRemove, onComplite } = props;
-
+  const { todo } = props;
   const elemRef = useRef(null);
-  const complite = todo.done;
-  const linesClass = complite
-    ? "todo__check-button-line complite"
-    : "todo__check-button-line";
+
+  const dispatch = useContext(TodoDispatchContext);
+  const { handleRemoveTodo, handleToggleComplite } = useManageTodo(dispatch);
 
   return (
     <li ref={elemRef} className="todo__item">
       <div className="todo__flex-box">
-        <div className="todo__check-button" onClick={() => onComplite(todo.id)}>
-          <div className={linesClass}></div>
-          <div className={linesClass}></div>
-          <div className={linesClass}></div>
-          <div className={linesClass}></div>
-        </div>
-
+        <TodoChekbox
+          complite={todo.done}
+          onClick={() => handleToggleComplite(todo.id)}
+        />
         <p className="todo__text">{todo.task}</p>
       </div>
 
       <button
         className="todo__remove-button"
         onClick={() => {
-          onRemove(todo.id, elemRef.current);
+          handleRemoveTodo(todo.id, elemRef.current);
         }}
       ></button>
     </li>
@@ -34,9 +33,8 @@ function Todo(props) {
 }
 
 Todo.propTypes = {
+  complite: PropTypes.string,
   todo: PropTypes.object,
-  onRemove: PropTypes.func,
-  onComplite: PropTypes.func,
 };
 
 export default Todo;
