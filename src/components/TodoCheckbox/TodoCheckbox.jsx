@@ -1,23 +1,23 @@
 import PropTypes from "prop-types";
 
 export default function InputChekbox(props) {
-  const { complite, onClick } = props;
+  const { todo, onClick } = props;
 
-  const linesClass = complite
+  const linesClass = todo.done
     ? "todo__check-button-line complite"
     : "todo__check-button-line";
 
   return (
     <div className="todo__check-button" onClick={onClick}>
-      <div className={linesClass}></div>
-      <div className={linesClass}></div>
-      <div className={linesClass}></div>
-      <div className={linesClass}></div>
+      <div data-line-id={todo.id} className={linesClass}></div>
+      <div data-line-id={todo.id} className={linesClass}></div>
+      <div data-line-id={todo.id} className={linesClass}></div>
+      <div data-line-id={todo.id} className={linesClass}></div>
     </div>
   );
 }
 
 InputChekbox.propTypes = {
-  complite: PropTypes.bool,
+  todo: PropTypes.object,
   onClick: PropTypes.func,
 };

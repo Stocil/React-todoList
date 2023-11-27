@@ -9,6 +9,11 @@ function Todo(props) {
   const { todo } = props;
   const elemRef = useRef(null);
 
+  const lineThrough = {
+    textDecoration: "line-through",
+    color: "#959595",
+  };
+
   const dispatch = useContext(TodoDispatchContext);
   const { handleRemoveTodo, handleToggleComplite } = useManageTodo(dispatch);
 
@@ -16,10 +21,12 @@ function Todo(props) {
     <li ref={elemRef} className="todo__item">
       <div className="todo__flex-box">
         <TodoChekbox
-          complite={todo.done}
+          todo={todo}
           onClick={() => handleToggleComplite(todo.id)}
         />
-        <p className="todo__text">{todo.task}</p>
+        <p className="todo__text" style={todo.done ? lineThrough : null}>
+          {todo.task}
+        </p>
       </div>
 
       <button

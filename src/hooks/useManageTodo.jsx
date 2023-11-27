@@ -17,7 +17,15 @@ export default function useManageTodo(dispatch) {
   }
 
   function handleToggleComplite(id) {
-    dispatch({
+    const lines = document.querySelectorAll("[data-line-id]");
+
+    for (let line = 0; line < lines.length; line++) {
+      if (+lines[line].dataset.lineId === id) {
+        lines[line].classList.toggle("complite");
+      }
+    }
+
+    setTimeout(dispatch, 500, {
       type: "toggle complite",
       id: id,
     });

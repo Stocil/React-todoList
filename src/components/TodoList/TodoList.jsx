@@ -1,21 +1,11 @@
-import { useContext } from "react";
-
-import Todo from "../Todo/Todo";
-import { TodoContext } from "../../context/tasksContextReducer";
+import FilteredTodoList from "../FilteredTodoList/FilteredTodoList";
 
 function TodoList() {
-  const todos = useContext(TodoContext);
-
-  const tasks = todos.map((todo) => {
-    return <Todo todo={todo} key={todo.id} />;
-  });
-
-  console.log(todos);
-
   return (
     <section className="todos">
       <div className="container">
-        <ul className="todo__list">{tasks}</ul>
+        <FilteredTodoList isComplite={false} />
+        <FilteredTodoList isComplite={true} />
       </div>
     </section>
   );
