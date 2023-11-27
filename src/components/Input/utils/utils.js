@@ -1,6 +1,7 @@
 export function handleInputFocus(label) {
   label.style.bottom = "40px";
-  label.style.color = "#e7adf9";
+  // label.style.color = "#e7adf9";
+  label.style.color = "#cae4ff";
 }
 
 export function handleInputBlur(inputRef, labelRef) {

@@ -42,7 +42,8 @@ $font-stack-main: "Montserrat", sans-serif;
 
     &:focus {
       outline: none;
-      border-color: #e7adf9;
+      // border-color: #e7adf9;
+      border-color: #dff5ff;
     }
   }
 
@@ -68,7 +69,8 @@ $font-stack-main: "Montserrat", sans-serif;
     }
 
     &:hover {
-      border-color: #e7adf9;
+      // border-color: #e7adf9;
+      border-color: #dff5ff;
     }
   }
 }
