@@ -7,8 +7,8 @@ export default function useManageTodo(dispatch) {
     });
   }
 
-  function handleRemoveTodo(id, elem) {
-    elem.classList.add("removed");
+  function handleRemoveTodo(id) {
+    document.getElementById(id).classList.add("removed");
 
     setTimeout(dispatch, 600, {
       type: "remove",
