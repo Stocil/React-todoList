@@ -3,6 +3,7 @@ import { useContext, useRef } from "react";
 import useManageTodo from "../../hooks/useManageTodo";
 import { handleInputBlur } from "./utils/utils";
 import { handleInputFocus } from "./utils/utils";
+import { handleClickAddTodo } from "./utils/utils";
 import { TodoDispatchContext } from "../../context/tasksContextReducer";
 
 function Input() {
@@ -35,15 +36,23 @@ function Input() {
                 inputRef.current &&
                 inputRef.current.value
               )
-                handleClickAdd();
+                handleClickAddTodo(
+                  handleAddTodo,
+                  inputRef.current,
+                  labelRef.current
+                );
             }}
           />
 
           <button
-            className="input__button"
+            className="input__add-button"
             onClick={() => {
               if (inputRef.current && inputRef.current.value) {
-                handleClickAdd();
+                handleClickAddTodo(
+                  handleAddTodo,
+                  inputRef.current,
+                  labelRef.current
+                );
               }
             }}
           >
@@ -53,24 +62,6 @@ function Input() {
       </div>
     </section>
   );
-
-  function handleClickAdd() {
-    const date = new Date();
-    const id =
-      "" +
-      date.getFullYear() +
-      date.getMonth() +
-      date.getDate() +
-      date.getHours() +
-      date.getMinutes() +
-      date.getSeconds();
-
-    handleAddTodo(inputRef.current.value, +id);
-
-    inputRef.current.value = "";
-
-    handleInputBlur(inputRef.current, labelRef.current);
-  }
 }
 
 export default Input;

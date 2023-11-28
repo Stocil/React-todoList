@@ -12,3 +12,27 @@ export function handleInputBlur(inputRef, labelRef) {
   labelRef.style.bottom = "10px";
   labelRef.style.color = "#959595";
 }
+
+export function handleClickAddTodo(func, input, label) {
+  const id = getId();
+
+  func(input.value, +id);
+  input.value = "";
+  handleInputBlur(input, label);
+
+  function getId() {
+    const date = new Date();
+
+    const id =
+      "" +
+      date.getFullYear() +
+      date.getMonth() +
+      date.getDate() +
+      date.getHours() +
+      date.getMinutes() +
+      date.getSeconds() +
+      date.getMilliseconds();
+
+    return +id;
+  }
+}

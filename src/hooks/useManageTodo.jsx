@@ -31,5 +31,18 @@ export default function useManageTodo(dispatch) {
     });
   }
 
-  return { handleAddTodo, handleRemoveTodo, handleToggleComplite };
+  function handleEditTodo(id, newTask) {
+    dispatch({
+      type: "edit",
+      id: id,
+      task: newTask,
+    });
+  }
+
+  return {
+    handleAddTodo,
+    handleRemoveTodo,
+    handleToggleComplite,
+    handleEditTodo,
+  };
 }

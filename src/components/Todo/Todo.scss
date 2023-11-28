@@ -21,10 +21,15 @@
     }
   }
 
-  &__flex-box {
+  &__todo-box,
+  &__control-box {
     display: flex;
     align-items: end;
     gap: 20px;
+  }
+
+  &__control-box {
+    gap: 10px;
   }
 
   &__remove-button {
@@ -40,6 +45,63 @@
 
     &:hover {
       background-image: url("../../../assets/trashRed.png");
+    }
+  }
+
+  &__edit-button {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+
+    width: 32px;
+    height: 32px;
+
+    background-image: url("../../../assets/editing.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
+
+  &__edit-input {
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: #cae4ff;
+
+    width: 550px;
+
+    font-family: $font-stack-main;
+    font-size: 18px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__save-button {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+
+    width: 32px;
+    height: 32px;
+
+    background-image: url("../../../assets/save.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 }

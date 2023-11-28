@@ -43,11 +43,11 @@ $font-stack-main: "Montserrat", sans-serif;
     &:focus {
       outline: none;
       // border-color: #e7adf9;
-      border-color: #dff5ff;
+      border-color: #cae4ff;
     }
   }
 
-  &__button {
+  &__add-button {
     padding: 0;
     cursor: pointer;
     background-color: transparent;
@@ -70,7 +70,7 @@ $font-stack-main: "Montserrat", sans-serif;
 
     &:hover {
       // border-color: #e7adf9;
-      border-color: #dff5ff;
+      border-color: #cae4ff;
     }
   }
 }

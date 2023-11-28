@@ -49,6 +49,18 @@ function tasksReducer(tasks, action) {
         }
       });
     }
+    case "edit": {
+      return tasks.map((task) => {
+        if (task.id === action.id) {
+          return {
+            ...task,
+            task: action.task,
+          };
+        } else {
+          return task;
+        }
+      });
+    }
     default: {
       throw Error("Wrong action: " + action.type);
     }
