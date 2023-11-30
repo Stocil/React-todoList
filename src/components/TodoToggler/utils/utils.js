@@ -16,9 +16,9 @@ export function onDelayClick(newPosition, position, onClick) {
   if (position === newPosition) return;
 
   document.querySelector(".todos__inner").classList.add("hide");
-  setTimeout(onClick, 400, newPosition);
+  setTimeout(onClick, 200, newPosition);
 
   setTimeout(() => {
     document.querySelector(".todos__inner").classList.remove("hide");
-  }, 400);
+  }, 200);
 }

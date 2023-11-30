@@ -14,18 +14,21 @@ function TodoToggler(props) {
       <p
         className="todos__switch-text"
         onClick={() => onDelayClick(1, position, onClick)}
+        // onClick={() => onClick(1)}
       >
         All
       </p>
       <p
         className="todos__switch-text"
         onClick={() => onDelayClick(2, position, onClick)}
+        // onClick={() => onClick(2)}
       >
         To do
       </p>
       <p
         className="todos__switch-text"
         onClick={() => onDelayClick(3, position, onClick)}
+        // onClick={() => onClick(3)}
       >
         Complited
       </p>
