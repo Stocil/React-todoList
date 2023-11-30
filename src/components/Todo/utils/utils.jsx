@@ -44,9 +44,15 @@ export function getTodoContent(
     );
   } else {
     textContent = (
-      <p className="todo__text" style={todo.done ? lineThrough : null}>
-        {todo.task}
-      </p>
+      <div className="todo__text-inner">
+        <p className="todo__text" style={todo.done ? lineThrough : null}>
+          {todo.task}
+        </p>
+
+        {todo.done ? (
+          <p className="todo__date">Сompleted on {todo.date}</p>
+        ) : null}
+      </div>
     );
 
     controlContent = (

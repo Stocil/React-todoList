@@ -27,6 +27,7 @@ function tasksReducer(tasks, action) {
           id: action.id,
           task: action.task,
           done: false,
+          date: null,
         },
       ];
     }
@@ -43,6 +44,7 @@ function tasksReducer(tasks, action) {
           return {
             ...task,
             done: !task.done,
+            date: action.date,
           };
         } else {
           return task;

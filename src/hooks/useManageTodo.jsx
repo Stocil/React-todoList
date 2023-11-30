@@ -28,6 +28,7 @@ export default function useManageTodo(dispatch) {
     setTimeout(dispatch, 500, {
       type: "toggle complite",
       id: id,
+      date: getDate(),
     });
   }
 
@@ -45,4 +46,24 @@ export default function useManageTodo(dispatch) {
     handleToggleComplite,
     handleEditTodo,
   };
+
+  function getDate() {
+    const date = new Date();
+
+    const year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let hour = date.getHours();
+    let minutes = date.getMinutes();
+
+    month = month < 10 ? "0" + month : month;
+    day = day < 10 ? "0" + day : day;
+    hour = hour < 10 ? "0" + hour : hour;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+
+    const fullDate = `
+    ${day}.${month}.${year} at ${hour}:${minutes}`;
+
+    return fullDate;
+  }
 }
