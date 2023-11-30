@@ -1,11 +1,18 @@
-import FilteredTodoList from "../FilteredTodoList/FilteredTodoList";
+import { useState } from "react";
+
+import TodoToggler from "../TodoToggler/TodoToggler";
+import { getFilteredList } from "./utils/utils";
 
 function TodoList() {
+  const [position, setPosition] = useState(1);
+
+  const content = getFilteredList(position);
+
   return (
     <section className="todos">
       <div className="container">
-        <FilteredTodoList isComplite={false} />
-        <FilteredTodoList isComplite={true} />
+        <TodoToggler position={position} onClick={setPosition} />
+        {content}
       </div>
     </section>
   );
