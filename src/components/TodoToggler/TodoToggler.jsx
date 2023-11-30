@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
 import { getSliderPosition } from "./utils/utils";
+// Mb return onDelayClick to this file
 import { onDelayClick } from "./utils/utils";
 
 function TodoToggler(props) {
