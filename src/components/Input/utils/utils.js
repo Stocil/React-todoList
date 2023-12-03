@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 export function handleInputFocus(label) {
   label.style.bottom = "40px";
   // label.style.color = "#e7adf9";
@@ -14,25 +16,9 @@ export function handleInputBlur(inputRef, labelRef) {
 }
 
 export function handleClickAddTodo(func, input, label) {
-  const id = getId();
+  const id = uuidv4();
 
-  func(input.value, +id);
+  func(input.value, id);
   input.value = "";
   handleInputBlur(input, label);
-
-  function getId() {
-    const date = new Date();
-
-    const id =
-      "" +
-      date.getFullYear() +
-      date.getMonth() +
-      date.getDate() +
-      date.getHours() +
-      date.getMinutes() +
-      date.getSeconds() +
-      date.getMilliseconds();
-
-    return +id;
-  }
 }

@@ -20,7 +20,7 @@ export default function useManageTodo(dispatch) {
     const lines = document.querySelectorAll("[data-line-id]");
 
     for (let line = 0; line < lines.length; line++) {
-      if (+lines[line].dataset.lineId === id) {
+      if (lines[line].dataset.lineId === id) {
         lines[line].classList.toggle("complite");
       }
     }
@@ -61,8 +61,7 @@ export default function useManageTodo(dispatch) {
     hour = hour < 10 ? "0" + hour : hour;
     minutes = minutes < 10 ? "0" + minutes : minutes;
 
-    const fullDate = `
-    ${day}.${month}.${year} at ${hour}:${minutes}`;
+    const fullDate = `${day}.${month}.${year} at ${hour}:${minutes}`;
 
     return fullDate;
   }

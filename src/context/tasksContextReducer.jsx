@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import PropTypes from "prop-types";
 
 // import initialTasks from "../data/initialTasks";
@@ -8,9 +8,13 @@ export const TodoContext = createContext(null);
 export const TodoDispatchContext = createContext(null);
 
 export function TodoTransmitter({ children }) {
-  const { getTodoItem } = useLocalStorage("todos");
+  const { setTodoItem, getTodoItem } = useLocalStorage("todos");
   const initialTasks = getTodoItem();
   const [todos, dispatch] = useReducer(tasksReducer, initialTasks);
+
+  useEffect(() => {
+    setTodoItem(todos);
+  }, [todos, setTodoItem]);
 
   return (
     <TodoContext.Provider value={todos}>
@@ -22,18 +26,6 @@ export function TodoTransmitter({ children }) {
 }
 
 function tasksReducer(tasks, action) {
-  const { setTodoItem } = useLocalStorage("todos");
-
-  setTodoItem([
-    ...tasks,
-    {
-      id: action.id,
-      task: action.task,
-      done: false,
-      date: null,
-    },
-  ]);
-
   switch (action.type) {
     case "add": {
       return [

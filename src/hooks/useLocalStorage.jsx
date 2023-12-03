@@ -5,7 +5,7 @@ function useLocalStorage(key) {
 
   function getTodoItem() {
     const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) : undefined;
+    return item ? JSON.parse(item) : [];
   }
 
   return { setTodoItem, getTodoItem };
