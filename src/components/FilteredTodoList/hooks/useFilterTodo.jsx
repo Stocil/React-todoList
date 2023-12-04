@@ -2,7 +2,7 @@ import Todo from "../../Todo/Todo";
 import { TodoContext } from "../../../context/tasksContextReducer";
 import { useContext } from "react";
 
-function useFilterTodo(isComplite) {
+function useFilterTodo(isComplite, sortBy) {
   const initialList = useContext(TodoContext);
 
   if (!isComplite) {
@@ -16,6 +16,10 @@ function useFilterTodo(isComplite) {
         return <Todo todo={todo} key={todo.id} />;
       });
 
+    if (sortBy === "new") {
+      return todos.reverse();
+    }
+
     return todos;
   } else {
     const todos = initialList
@@ -27,6 +31,10 @@ function useFilterTodo(isComplite) {
       .map((todo) => {
         return <Todo todo={todo} key={todo.id} />;
       });
+
+    if (sortBy === "new") {
+      return todos.reverse();
+    }
 
     return todos;
   }

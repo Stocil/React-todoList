@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import useFilterTodo from "./hooks/useFilterTodo";
 
 function FilteredTodoList(props) {
-  const { isComplite } = props;
+  const { isComplite, sortBy } = props;
 
-  const tasks = useFilterTodo(isComplite);
+  const tasks = useFilterTodo(isComplite, sortBy);
   const content = isComplite ? "Complited:" : "To do:";
   let listContent;
 
@@ -25,6 +25,7 @@ function FilteredTodoList(props) {
 
 FilteredTodoList.propTypes = {
   isComplite: PropTypes.bool,
+  sortBy: PropTypes.string,
 };
 
 export default FilteredTodoList;
