@@ -18,7 +18,9 @@ function FilteredTodoList(props) {
   return (
     <>
       <h2 className="todos__section-subtitle"> {content} </h2>
-      <ul className="todos__list">{listContent}</ul>
+      <ul className="todos__list" style={{}}>
+        {listContent}
+      </ul>
     </>
   );
 }

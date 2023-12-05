@@ -1,7 +1,6 @@
 import { createContext, useEffect, useReducer } from "react";
 import PropTypes from "prop-types";
 
-// import initialTasks from "../data/initialTasks";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 export const TodoContext = createContext(null);
@@ -77,5 +76,5 @@ function tasksReducer(tasks, action) {
 }
 
 TodoTransmitter.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.object,
 };

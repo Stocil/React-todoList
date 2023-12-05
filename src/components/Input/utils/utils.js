@@ -1,9 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 
 export function handleInputFocus(label) {
-  label.style.bottom = "40px";
-  // label.style.color = "#e7adf9";
-  label.style.color = "#cae4ff";
+  label.classList.add("selected");
 }
 
 export function handleInputBlur(inputRef, labelRef) {
@@ -11,8 +9,7 @@ export function handleInputBlur(inputRef, labelRef) {
 
   inputRef.blur();
 
-  labelRef.style.bottom = "10px";
-  labelRef.style.color = "#959595";
+  labelRef.classList.remove("selected");
 }
 
 export function handleClickAddTodo(func, input, label) {

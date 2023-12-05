@@ -4,11 +4,15 @@ import useManageTodo from "../../hooks/useManageTodo";
 import { handleInputBlur } from "./utils/utils";
 import { handleInputFocus } from "./utils/utils";
 import { handleClickAddTodo } from "./utils/utils";
+
 import { TodoDispatchContext } from "../../context/tasksContextReducer";
+import { ThemeContext } from "../../context/themeContext";
 
 function Input() {
   const dispatch = useContext(TodoDispatchContext);
   const { handleAddTodo } = useManageTodo(dispatch);
+
+  const theme = useContext(ThemeContext);
 
   const labelRef = useRef(null);
   const inputRef = useRef(null);
