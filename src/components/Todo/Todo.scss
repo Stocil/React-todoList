@@ -3,11 +3,6 @@
     padding: 15px;
 
     width: 670px;
-    // height: 60px;
-
-    // background-color: #f9e3ff pink;
-
-    background-color: #cae4ff;
 
     display: flex;
     justify-content: space-between;
@@ -16,14 +11,29 @@
 
     border-radius: 10px;
 
+    transition: background-color $transition-lengh ease-in-out;
+
     &.removed {
       animation: remove 1s 1;
+    }
+
+    &[data-theme="sky-blue"] {
+      background-color: $sky-blue-dark;
+    }
+
+    &[data-theme="soft-pink"] {
+      background-color: $soft-pink-light;
     }
   }
 
   &__text {
     display: flex;
     align-self: end;
+
+    &.complited {
+      text-decoration: line-through;
+      color: #959595;
+    }
   }
 
   &__date {
@@ -38,6 +48,13 @@
     display: flex;
     align-items: center;
     gap: 20px;
+
+    transition: background-color $transition-lengh ease-in-out;
+
+    &[data-theme="sky-blue"],
+    &[data-theme="soft-pink"] {
+      background-color: transparent;
+    }
   }
 
   &__control-box {
@@ -84,12 +101,21 @@
   &__edit-input {
     border: none;
     border-bottom: 1px solid black;
-    background-color: #cae4ff;
 
     width: 550px;
 
     font-family: $font-stack-main;
     font-size: 18px;
+
+    transition: background-color $transition-lengh ease-in-out;
+
+    &[data-theme="sky-blue"] {
+      background-color: $sky-blue-dark;
+    }
+
+    &[data-theme="soft-pink"] {
+      background-color: $soft-pink-light;
+    }
 
     &:focus {
       outline: none;

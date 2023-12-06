@@ -21,11 +21,20 @@ $font-stack-main: "Montserrat", sans-serif;
 
     bottom: 10px;
 
-    transition: bottom 0.2s ease-in-out, color 0.3s ease-in-out;
+    transition: bottom 0.2s ease-in-out, color 0.3s ease-in-out,
+      background-color $transition-lengh ease-in-out,
+      border $transition-lengh ease-in-out;
 
     &.selected {
       bottom: 40px;
-      color: #cae4ff;
+
+      &[data-theme="sky-blue"] {
+        color: $sky-blue-dark;
+      }
+
+      &[data-theme="soft-pink"] {
+        color: $soft-pink-dark;
+      }
     }
   }
 
@@ -39,12 +48,27 @@ $font-stack-main: "Montserrat", sans-serif;
     font-family: $font-stack-main;
     font-size: 18px;
 
-    transition: border-color 0.3s ease-in-out;
+    transition: border-color 0.3s ease-in-out,
+      background-color $transition-lengh ease-in-out;
+
+    &[data-theme="sky-blue"] {
+      background-color: $sky-blue-bg;
+    }
+
+    &[data-theme="soft-pink"] {
+      background-color: $soft-pink-bg;
+    }
 
     &:focus {
       outline: none;
-      // border-color: #e7adf9;
-      border-color: #cae4ff;
+
+      &[data-theme="sky-blue"] {
+        border-color: $sky-blue-dark;
+      }
+
+      &[data-theme="soft-pink"] {
+        border-color: $soft-pink-dark;
+      }
     }
   }
 
@@ -70,8 +94,13 @@ $font-stack-main: "Montserrat", sans-serif;
     }
 
     &:hover {
-      // border-color: #e7adf9;
-      border-color: #cae4ff;
+      &[data-theme="sky-blue"] {
+        border-color: $sky-blue-dark;
+      }
+
+      &[data-theme="soft-pink"] {
+        border-color: $soft-pink-dark;
+      }
     }
   }
 }

@@ -1,15 +1,24 @@
 .todos {
   &__list {
     margin: 20px 0 0 0;
+    padding: 15px;
 
     display: flex;
     flex-direction: column;
     gap: 20px;
 
-    padding: 15px;
-    background-color: #dff5ff;
     max-width: 700px;
     border-radius: 20px;
+
+    transition: background-color $transition-lengh ease-in-out;
+
+    &[data-theme="sky-blue"] {
+      background-color: $sky-blue-light;
+    }
+
+    &[data-theme="soft-pink"] {
+      background-color: $soft-pink-dark;
+    }
   }
 
   &__section-subtitle {

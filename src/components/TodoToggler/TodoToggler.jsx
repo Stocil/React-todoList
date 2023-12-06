@@ -1,16 +1,18 @@
 import PropTypes from "prop-types";
 
 import { getSliderPosition } from "./utils/utils";
-
 import { onDelayClick } from "./utils/utils";
+import { ThemeContext } from "../../context/themeContext";
+import { useContext } from "react";
 
 function TodoToggler(props) {
   const { position, onClick } = props;
+  const theme = useContext(ThemeContext);
 
   const sliderClass = getSliderPosition(position);
 
   return (
-    <div className="todos__switch-inner">
+    <div data-theme={theme} className="todos__switch-inner">
       <p
         className="todos__switch-text"
         onClick={() => onDelayClick(1, position, onClick)}
@@ -29,7 +31,10 @@ function TodoToggler(props) {
       >
         Complited
       </p>
-      <div className={"todos__switch-slider " + sliderClass}></div>
+      <div
+        data-theme={theme}
+        className={"todos__switch-slider " + sliderClass}
+      ></div>
     </div>
   );
 }

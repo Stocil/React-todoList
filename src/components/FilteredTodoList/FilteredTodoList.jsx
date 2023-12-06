@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
+import { useContext } from "react";
 
+import { ThemeContext } from "../../context/themeContext";
 import useFilterTodo from "./hooks/useFilterTodo";
 
 function FilteredTodoList(props) {
   const { isComplite, sortBy } = props;
+  const theme = useContext(ThemeContext);
 
   const tasks = useFilterTodo(isComplite, sortBy);
   const content = isComplite ? "Complited:" : "To do:";
@@ -18,7 +21,7 @@ function FilteredTodoList(props) {
   return (
     <>
       <h2 className="todos__section-subtitle"> {content} </h2>
-      <ul className="todos__list" style={{}}>
+      <ul data-theme={theme} className="todos__list" style={{}}>
         {listContent}
       </ul>
     </>

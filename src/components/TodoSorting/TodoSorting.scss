@@ -5,7 +5,6 @@
     width: 280px;
     height: 60px;
 
-    background-color: hsl(199, 100%, 94%);
     border-radius: 20px;
 
     display: flex;
@@ -13,17 +12,24 @@
     justify-content: space-between;
 
     position: relative;
+
+    transition: background-color $transition-lengh ease-in-out;
+
+    &[data-theme="sky-blue"] {
+      background-color: $sky-blue-light;
+    }
+
+    &[data-theme="soft-pink"] {
+      background-color: $soft-pink-dark;
+    }
   }
 
   &-selected {
     padding: 10px 30px 10px 10px;
 
-    border: 1px solid #8ec6f5;
     border-radius: 20px;
 
     width: 170px;
-
-    background-color: #cae4ff;
 
     &::after {
       content: "";
@@ -37,6 +43,19 @@
       position: absolute;
       right: 22px;
       bottom: 35%;
+    }
+
+    transition: background-color $transition-lengh ease-in-out,
+      border $transition-lengh ease-in-out;
+
+    &[data-theme="sky-blue"] {
+      border: 1px solid $sky-blue-border;
+      background-color: $sky-blue-dark;
+    }
+
+    &[data-theme="soft-pink"] {
+      border: 1px solid $soft-pink-border;
+      background-color: $soft-pink-light;
     }
   }
 
@@ -57,15 +76,34 @@
     gap: 5px;
 
     border: none;
-    background-color: #cae4ff;
+
     border-radius: 20px;
 
-    transition: height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    transition: height 0.3s ease-in-out, padding 0.3s ease-in-out,
+      background-color $transition-lengh ease-in-out,
+      border $transition-lengh ease-in-out;
+
+    &[data-theme="sky-blue"] {
+      background-color: $sky-blue-dark;
+    }
+
+    &[data-theme="soft-pink"] {
+      background-color: $soft-pink-light;
+    }
 
     &.open {
-      border: 1px solid #8ec6f5;
       padding: 15px 5px;
       height: 110px;
+
+      &[data-theme="sky-blue"] {
+        background-color: $sky-blue-dark;
+        border: 1px solid $sky-blue-border;
+      }
+
+      &[data-theme="soft-pink"] {
+        background-color: $soft-pink-light;
+        border: 1px solid $soft-pink-border;
+      }
     }
   }
 
@@ -82,12 +120,25 @@
     }
 
     &[aria-selected="true"] {
-      background-color: #8ec6f5;
+      &[data-theme="sky-blue"] {
+        background-color: $sky-blue-border;
+      }
+
+      &[data-theme="soft-pink"] {
+        background-color: $soft-pink-dark;
+      }
     }
 
     &:hover {
-      background-color: #8ec6f5;
       border-radius: 15px;
+
+      &[data-theme="sky-blue"] {
+        background-color: $sky-blue-border;
+      }
+
+      &[data-theme="soft-pink"] {
+        background-color: $soft-pink-dark;
+      }
     }
   }
 }

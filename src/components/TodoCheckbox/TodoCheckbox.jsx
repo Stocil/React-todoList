@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import PropTypes from "prop-types";
+
+import { ThemeContext } from "../../context/themeContext";
 
 export default function InputChekbox(props) {
   const { todo, onClick } = props;
+  const theme = useContext(ThemeContext);
 
   const linesClass = todo.done
     ? "todo__check-button-line complite"
@@ -9,10 +13,26 @@ export default function InputChekbox(props) {
 
   return (
     <div className="todo__check-button" onClick={onClick}>
-      <div data-line-id={todo.id} className={linesClass}></div>
-      <div data-line-id={todo.id} className={linesClass}></div>
-      <div data-line-id={todo.id} className={linesClass}></div>
-      <div data-line-id={todo.id} className={linesClass}></div>
+      <div
+        data-theme={theme}
+        data-line-id={todo.id}
+        className={linesClass}
+      ></div>
+      <div
+        data-theme={theme}
+        data-line-id={todo.id}
+        className={linesClass}
+      ></div>
+      <div
+        data-theme={theme}
+        data-line-id={todo.id}
+        className={linesClass}
+      ></div>
+      <div
+        data-theme={theme}
+        data-line-id={todo.id}
+        className={linesClass}
+      ></div>
     </div>
   );
 }

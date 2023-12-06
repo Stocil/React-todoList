@@ -1,11 +1,13 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 import PropTypes from "prop-types";
 
+import { ThemeContext } from "../../context/themeContext";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
 function TodoSorting(props) {
   const [isOpen, setOpen] = useState(false);
+  const theme = useContext(ThemeContext);
   const dropdownRef = useRef(null);
   const selectedRef = useRef(null);
 
@@ -21,11 +23,12 @@ function TodoSorting(props) {
     : "todos__sort-dropdown";
 
   return (
-    <div className="todos__sort-inner">
+    <div data-theme={theme} className="todos__sort-inner">
       <p className="todos__sort-text">Sort by:</p>
 
       <div className="todos__sort-select">
         <p
+          data-theme={theme}
           className="todos__sort-selected"
           onClick={handleOpenClick}
           ref={selectedRef}
@@ -33,8 +36,14 @@ function TodoSorting(props) {
           {textContent}
         </p>
 
-        <div className={dropdownCLass} aria-disabled={isOpen} ref={dropdownRef}>
+        <div
+          data-theme={theme}
+          className={dropdownCLass}
+          aria-disabled={isOpen}
+          ref={dropdownRef}
+        >
           <div
+            data-theme={theme}
             className={optionClass}
             aria-selected={"new" == selected}
             aria-disabled={isOpen}
@@ -44,6 +53,7 @@ function TodoSorting(props) {
             New ones first
           </div>
           <div
+            data-theme={theme}
             className={optionClass}
             aria-disabled={isOpen}
             aria-selected={"old" == selected}

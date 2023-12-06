@@ -10,10 +10,23 @@
     &-line {
       content: "";
       position: absolute;
-      background-color: black;
 
       transition: transform 0.3s ease-in-out, height 0.3s ease-in-out,
         width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+      &[data-theme="sky-blue"],
+      &[data-theme="soft-pink"] {
+        background-color: black;
+      }
+
+      &.complite {
+        // background-color: #65db3b;
+
+        &[data-theme="sky-blue"],
+        &[data-theme="soft-pink"] {
+          background-color: #65db3b;
+        }
+      }
 
       &:nth-child(1) {
         top: 0;
@@ -24,7 +37,6 @@
 
         &.complite {
           transform: translateX(7px) translateY(7px) rotate(-45deg);
-          background-color: #65db3b;
         }
       }
 
@@ -36,7 +48,6 @@
 
         &.complite {
           transform: translateX(-2px) translateY(-2px) rotate(45deg);
-          background-color: #65db3b;
         }
       }
 
@@ -50,7 +61,6 @@
         &.complite {
           width: 13px;
           transform: translateX(0px) translateY(-8.5px) rotate(45deg);
-          background-color: #65db3b;
         }
       }
 
@@ -63,7 +73,6 @@
         &.complite {
           height: 13px;
           transform: translateX(5.5px) translateY(4px) rotate(-45deg);
-          background-color: #65db3b;
         }
       }
     }

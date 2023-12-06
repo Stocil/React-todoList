@@ -4,20 +4,19 @@ export function getTodoContent(
   task,
   setTask,
   todo,
+  theme,
   onEdit,
   onRemove
 ) {
   let textContent;
   let controlContent;
 
-  const lineThrough = {
-    textDecoration: "line-through",
-    color: "#959595",
-  };
+  const textClass = todo.done ? "todo__text complited" : "todo__text";
 
   if (isEdit) {
     textContent = (
       <input
+        data-theme={theme}
         className="todo__edit-input"
         value={task}
         onChange={(e) => setTask(e.target.value)}
@@ -45,9 +44,7 @@ export function getTodoContent(
   } else {
     textContent = (
       <div className="todo__text-inner">
-        <p className="todo__text" style={todo.done ? lineThrough : null}>
-          {todo.task}
-        </p>
+        <p className={textClass}>{todo.task}</p>
 
         {todo.done ? (
           <p className="todo__date">Сompleted on {todo.date}</p>
@@ -56,7 +53,7 @@ export function getTodoContent(
     );
 
     controlContent = (
-      <div className="todo__control-box">
+      <div data-theme={theme} className="todo__control-box">
         <button
           className="todo__edit-button"
           onClick={() => {

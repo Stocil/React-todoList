@@ -30,7 +30,18 @@ body {
   font-family: $font-stack-main;
   font-size: 18px;
   font-weight: 400;
-  color: black;
+
+  transition: background-color $transition-lengh ease-in-out;
+
+  &[data-theme="sky-blue"] {
+    background-color: $sky-blue-bg;
+    color: black;
+  }
+
+  &[data-theme="soft-pink"] {
+    color: black;
+    background-color: $soft-pink-bg;
+  }
 }
 
 .container {

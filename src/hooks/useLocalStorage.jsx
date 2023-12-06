@@ -17,7 +17,23 @@ function useLocalStorage(key) {
     return item ? JSON.parse(item) : "old";
   }
 
-  return { setTodoItem, getTodoItem, setSortTodos, getSortTodos };
+  function setTheme(value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  function getTheme() {
+    const item = localStorage.getItem(key);
+    return item ? JSON.parse(item) : "sky-blue";
+  }
+
+  return {
+    setTodoItem,
+    getTodoItem,
+    setSortTodos,
+    getSortTodos,
+    setTheme,
+    getTheme,
+  };
 }
 
 export default useLocalStorage;

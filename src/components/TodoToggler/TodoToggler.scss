@@ -1,16 +1,4 @@
 .todos {
-  &__inner {
-    margin-bottom: 50px;
-
-    opacity: 1;
-
-    transition: opacity 0.2s ease-in-out;
-
-    &.hide {
-      opacity: 0;
-    }
-  }
-
   &__switch {
     &-inner {
       padding: 5px 25px;
@@ -23,9 +11,18 @@
       height: 60px;
 
       border-radius: 20px;
-      background-color: #dff5ff;
 
       position: relative;
+
+      transition: background-color $transition-lengh ease-in-out;
+
+      &[data-theme="sky-blue"] {
+        background-color: $sky-blue-light;
+      }
+
+      &[data-theme="soft-pink"] {
+        background-color: $soft-pink-dark;
+      }
     }
 
     &-text {
@@ -36,9 +33,7 @@
     &-slider {
       height: 40px;
 
-      border: 1px solid #8ec6f5;
       border-radius: 20px;
-      background-color: #cae4ff;
 
       position: absolute;
       left: 10px;
@@ -46,7 +41,19 @@
 
       z-index: 1;
 
-      transition: transform 0.4s ease-in-out, width 0.4s ease-in-out;
+      transition: transform 0.4s ease-in-out, width 0.4s ease-in-out,
+        background-color $transition-lengh ease-in-out,
+        border $transition-lengh ease-in-out;
+
+      &[data-theme="sky-blue"] {
+        border: 1px solid $sky-blue-border;
+        background-color: $sky-blue-dark;
+      }
+
+      &[data-theme="soft-pink"] {
+        border: 1px solid $soft-pink-border;
+        background-color: $soft-pink-light;
+      }
 
       &.position-1 {
         width: 50px;
