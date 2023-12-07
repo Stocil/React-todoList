@@ -61,14 +61,9 @@
 
     &[data-theme="sky-blue"],
     &[data-theme="soft-pink"],
-    &[data-theme="light"] {
-      background-color: transparent;
-    }
-
+    &[data-theme="light"],
     &[data-theme="deep-dark"] {
-      background-color: $deep-dark-light;
-      border-radius: 20px;
-      padding: 5px;
+      background-color: transparent;
     }
   }
 

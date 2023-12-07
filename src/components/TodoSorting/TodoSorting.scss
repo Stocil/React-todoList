@@ -33,6 +33,8 @@
   }
 
   &-text {
+    transition: color $transition-lengh ease-in-out;
+
     color: black;
     &[data-theme="light"] {
       color: $light-font-secondary;
