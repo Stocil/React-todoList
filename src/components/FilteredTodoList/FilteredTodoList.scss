@@ -19,6 +19,14 @@
     &[data-theme="soft-pink"] {
       background-color: $soft-pink-dark;
     }
+
+    &[data-theme="light"] {
+      background-color: $light-dark;
+    }
+
+    &[data-theme="deep-dark"] {
+      background-color: $deep-dark-dark;
+    }
   }
 
   &__section-subtitle {

@@ -15,15 +15,22 @@
         width 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
       &[data-theme="sky-blue"],
-      &[data-theme="soft-pink"] {
+      &[data-theme="soft-pink"],
+      &[data-theme="light"] {
         background-color: black;
+      }
+
+      &[data-theme="deep-dark"] {
+        background-color: $deep-dark-main;
       }
 
       &.complite {
         // background-color: #65db3b;
 
         &[data-theme="sky-blue"],
-        &[data-theme="soft-pink"] {
+        &[data-theme="soft-pink"],
+        &[data-theme="light"],
+        &[data-theme="deep-dark"] {
           background-color: #65db3b;
         }
       }

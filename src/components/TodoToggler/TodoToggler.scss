@@ -23,11 +23,40 @@
       &[data-theme="soft-pink"] {
         background-color: $soft-pink-dark;
       }
+
+      &[data-theme="light"] {
+        background-color: $light-dark;
+      }
+
+      &[data-theme="deep-dark"] {
+        background-color: $deep-dark-dark;
+      }
     }
 
     &-text {
       cursor: pointer;
       z-index: 2;
+      color: black;
+
+      transition: color $transition-lengh ease-in-out;
+
+      &.current {
+        &[data-theme="light"] {
+          color: $light-font-main;
+        }
+
+        &[data-theme="deep-dark"] {
+          color: $deep-dark-secondary;
+        }
+      }
+
+      &[data-theme="light"] {
+        color: $light-font-secondary;
+      }
+
+      &[data-theme="deep-dark"] {
+        color: $deep-dark-main;
+      }
     }
 
     &-slider {
@@ -53,6 +82,16 @@
       &[data-theme="soft-pink"] {
         border: 1px solid $soft-pink-border;
         background-color: $soft-pink-light;
+      }
+
+      &[data-theme="light"] {
+        border: 1px solid $light-border;
+        background-color: $light-light;
+      }
+
+      &[data-theme="deep-dark"] {
+        border: $deep-dark-border;
+        background-color: $deep-dark-main;
       }
 
       &.position-1 {

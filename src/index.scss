@@ -39,8 +39,18 @@ body {
   }
 
   &[data-theme="soft-pink"] {
-    color: black;
     background-color: $soft-pink-bg;
+    color: black;
+  }
+
+  &[data-theme="light"] {
+    background-color: $light-bg;
+    color: $light-font-main;
+  }
+
+  &[data-theme="deep-dark"] {
+    background-color: $deep-dark-bg;
+    color: $deep-dark-main;
   }
 }
 

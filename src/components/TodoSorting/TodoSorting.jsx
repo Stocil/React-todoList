@@ -24,7 +24,9 @@ function TodoSorting(props) {
 
   return (
     <div data-theme={theme} className="todos__sort-inner">
-      <p className="todos__sort-text">Sort by:</p>
+      <p data-theme={theme} className="todos__sort-text">
+        Sort by:
+      </p>
 
       <div className="todos__sort-select">
         <p

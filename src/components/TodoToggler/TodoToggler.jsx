@@ -14,20 +14,23 @@ function TodoToggler(props) {
   return (
     <div data-theme={theme} className="todos__switch-inner">
       <p
-        className="todos__switch-text"
-        onClick={() => onDelayClick(1, position, onClick)}
+        data-theme={theme}
+        className="todos__switch-text current"
+        onClick={(e) => handleClick(e, 1)}
       >
         All
       </p>
       <p
+        data-theme={theme}
         className="todos__switch-text"
-        onClick={() => onDelayClick(2, position, onClick)}
+        onClick={(e) => handleClick(e, 2)}
       >
         To do
       </p>
       <p
+        data-theme={theme}
         className="todos__switch-text"
-        onClick={() => onDelayClick(3, position, onClick)}
+        onClick={(e) => handleClick(e, 3)}
       >
         Complited
       </p>
@@ -37,6 +40,12 @@ function TodoToggler(props) {
       ></div>
     </div>
   );
+
+  function handleClick(e, number) {
+    document.querySelector(".current").classList.remove("current");
+    e.target.classList.toggle("current");
+    onDelayClick(number, position, onClick);
+  }
 }
 
 TodoToggler.propTypes = {

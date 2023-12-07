@@ -24,6 +24,14 @@
     &[data-theme="soft-pink"] {
       background-color: $soft-pink-light;
     }
+
+    &[data-theme="light"] {
+      background-color: $light-light;
+    }
+
+    &[data-theme="deep-dark"] {
+      background-color: $deep-dark-light;
+    }
   }
 
   &__text {
@@ -52,8 +60,15 @@
     transition: background-color $transition-lengh ease-in-out;
 
     &[data-theme="sky-blue"],
-    &[data-theme="soft-pink"] {
+    &[data-theme="soft-pink"],
+    &[data-theme="light"] {
       background-color: transparent;
+    }
+
+    &[data-theme="deep-dark"] {
+      background-color: $deep-dark-light;
+      border-radius: 20px;
+      padding: 5px;
     }
   }
 
@@ -115,6 +130,16 @@
 
     &[data-theme="soft-pink"] {
       background-color: $soft-pink-light;
+    }
+
+    &[data-theme="light"] {
+      background-color: $light-light;
+    }
+
+    &[data-theme="deep-dark"] {
+      color: $deep-dark-main;
+      background-color: $deep-dark-light;
+      border-color: $deep-dark-main;
     }
 
     &:focus {

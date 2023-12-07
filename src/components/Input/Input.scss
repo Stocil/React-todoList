@@ -1,5 +1,3 @@
-$font-stack-main: "Montserrat", sans-serif;
-
 .input {
   margin-top: 100px;
 
@@ -35,6 +33,14 @@ $font-stack-main: "Montserrat", sans-serif;
       &[data-theme="soft-pink"] {
         color: $soft-pink-dark;
       }
+
+      &[data-theme="light"] {
+        color: $light-dark;
+      }
+
+      &[data-theme="deep-dark"] {
+        color: $deep-dark-main;
+      }
     }
   }
 
@@ -59,6 +65,15 @@ $font-stack-main: "Montserrat", sans-serif;
       background-color: $soft-pink-bg;
     }
 
+    &[data-theme="light"] {
+      background-color: $light-bg;
+    }
+
+    &[data-theme="deep-dark"] {
+      border-color: $deep-dark-light;
+      background-color: $deep-dark-bg;
+    }
+
     &:focus {
       outline: none;
 
@@ -68,6 +83,15 @@ $font-stack-main: "Montserrat", sans-serif;
 
       &[data-theme="soft-pink"] {
         border-color: $soft-pink-dark;
+      }
+
+      &[data-theme="light"] {
+        border-color: $light-dark;
+      }
+
+      &[data-theme="deep-dark"] {
+        color: $deep-dark-main;
+        border-color: $deep-dark-border;
       }
     }
   }
@@ -87,7 +111,12 @@ $font-stack-main: "Montserrat", sans-serif;
     height: 40px;
     font-size: 33px;
 
-    transition: border-color 0.3s ease-in-out;
+    transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+    &[data-theme="deep-dark"] {
+      color: $deep-dark-main;
+      border-color: $deep-dark-light;
+    }
 
     &:active {
       border-style: solid;
@@ -100,6 +129,15 @@ $font-stack-main: "Montserrat", sans-serif;
 
       &[data-theme="soft-pink"] {
         border-color: $soft-pink-dark;
+      }
+
+      &[data-theme="light"] {
+        border-color: $light-border;
+      }
+
+      &[data-theme="deep-dark"] {
+        color: $deep-dark-main;
+        border-color: $deep-dark-main;
       }
     }
   }

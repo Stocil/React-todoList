@@ -22,6 +22,25 @@
     &[data-theme="soft-pink"] {
       background-color: $soft-pink-dark;
     }
+
+    &[data-theme="light"] {
+      background-color: $light-dark;
+    }
+
+    &[data-theme="deep-dark"] {
+      background-color: $deep-dark-dark;
+    }
+  }
+
+  &-text {
+    color: black;
+    &[data-theme="light"] {
+      color: $light-font-secondary;
+    }
+
+    &[data-theme="deep-dark"] {
+      color: $deep-dark-main;
+    }
   }
 
   &-selected {
@@ -57,6 +76,16 @@
       border: 1px solid $soft-pink-border;
       background-color: $soft-pink-light;
     }
+
+    &[data-theme="light"] {
+      border: 1px solid $light-border;
+      background-color: $light-light;
+    }
+
+    &[data-theme="deep-dark"] {
+      border: 1px solid $deep-dark-border;
+      background-color: $deep-dark-light;
+    }
   }
 
   &-select {
@@ -91,6 +120,14 @@
       background-color: $soft-pink-light;
     }
 
+    &[data-theme="light"] {
+      background-color: $light-light;
+    }
+
+    &[data-theme="deep-dark"] {
+      background-color: $deep-dark-dark;
+    }
+
     &.open {
       padding: 15px 5px;
       height: 110px;
@@ -104,6 +141,16 @@
         background-color: $soft-pink-light;
         border: 1px solid $soft-pink-border;
       }
+
+      &[data-theme="light"] {
+        background-color: $light-light;
+        border: 1px solid $light-border;
+      }
+
+      &[data-theme="deep-dark"] {
+        background-color: $deep-dark-dark;
+        border: 1px solid $deep-dark-border;
+      }
     }
   }
 
@@ -113,7 +160,8 @@
 
     opacity: 0;
 
-    transition: background-color 0.3s ease-in-out, opacity 0.2s ease-in-out;
+    transition: background-color 0.3s ease-in-out, opacity 0.2s ease-in-out,
+      color 0.3s ease-in-out;
 
     &.open {
       opacity: 1;
@@ -127,6 +175,16 @@
       &[data-theme="soft-pink"] {
         background-color: $soft-pink-dark;
       }
+
+      &[data-theme="light"] {
+        color: $light-font-secondary;
+        background-color: $light-dark;
+      }
+
+      &[data-theme="deep-dark"] {
+        color: $deep-dark-secondary;
+        background-color: $deep-dark-main;
+      }
     }
 
     &:hover {
@@ -138,6 +196,16 @@
 
       &[data-theme="soft-pink"] {
         background-color: $soft-pink-dark;
+      }
+
+      &[data-theme="light"] {
+        color: $light-font-secondary;
+        background-color: $light-dark;
+      }
+
+      &[data-theme="deep-dark"] {
+        color: $deep-dark-secondary;
+        background-color: $deep-dark-main;
       }
     }
   }

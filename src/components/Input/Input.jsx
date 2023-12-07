@@ -29,15 +29,28 @@ function Input() {
           onClick={() => setTheme("sky-blue")}
           style={{ backgroundColor: "#cae4ff" }}
         >
-          {" "}
           To sky-blue
         </button>
+
         <button
           onClick={() => setTheme("soft-pink")}
           style={{ backgroundColor: "#ffe9f9" }}
         >
-          {" "}
-          To sost-pink
+          To soft-pink
+        </button>
+
+        <button
+          onClick={() => setTheme("light")}
+          style={{ backgroundColor: "white", borderColor: "black" }}
+        >
+          To light
+        </button>
+
+        <button
+          onClick={() => setTheme("deep-dark")}
+          style={{ backgroundColor: "#171717", color: "white" }}
+        >
+          To dark
         </button>
 
         <div className="input__group">
