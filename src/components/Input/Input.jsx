@@ -33,7 +33,7 @@ function Input() {
             htmlFor="new-todo"
             ref={labelRef}
           >
-            Todo name
+            Add todo
           </label>
 
           <input

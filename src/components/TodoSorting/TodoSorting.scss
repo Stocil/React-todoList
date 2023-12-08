@@ -121,6 +121,7 @@
     &.open {
       padding: 15px 5px;
       height: 110px;
+      z-index: 1;
 
       &[data-theme="sky-blue"] {
         background-color: $sky-blue-dark;

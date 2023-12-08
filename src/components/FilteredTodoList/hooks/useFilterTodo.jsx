@@ -2,11 +2,15 @@ import Todo from "../../Todo/Todo";
 import { TodoContext } from "../../../context/tasksContextReducer";
 import { useContext } from "react";
 
-function useFilterTodo(isComplite, sortBy) {
+import { getTodosFilteredBySearch } from "../utils/utils";
+
+function useFilterTodo(isComplite, sortBy, search) {
   const initialList = useContext(TodoContext);
 
+  const filteredList = getTodosFilteredBySearch(initialList, search);
+
   if (!isComplite) {
-    const todos = initialList
+    const todos = filteredList
       .filter((todo) => {
         if (todo.done === false) {
           return todo;
@@ -22,7 +26,7 @@ function useFilterTodo(isComplite, sortBy) {
 
     return todos;
   } else {
-    const todos = initialList
+    const todos = filteredList
       .filter((todo) => {
         if (todo.done) {
           return todo;

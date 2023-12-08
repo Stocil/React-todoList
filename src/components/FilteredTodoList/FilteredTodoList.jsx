@@ -5,10 +5,10 @@ import { ThemeContext } from "../../context/themeContext";
 import useFilterTodo from "./hooks/useFilterTodo";
 
 function FilteredTodoList(props) {
-  const { isComplite, sortBy } = props;
+  const { isComplite, sortBy, search } = props;
   const theme = useContext(ThemeContext);
 
-  const tasks = useFilterTodo(isComplite, sortBy);
+  const tasks = useFilterTodo(isComplite, sortBy, search);
   const content = isComplite ? "Complited:" : "To do:";
   let listContent;
 
@@ -31,6 +31,7 @@ function FilteredTodoList(props) {
 FilteredTodoList.propTypes = {
   isComplite: PropTypes.bool,
   sortBy: PropTypes.string,
+  search: PropTypes.string,
 };
 
 export default FilteredTodoList;
