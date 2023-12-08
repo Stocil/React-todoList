@@ -20,7 +20,7 @@ function TodoSorting(props) {
   const optionClass = isOpen ? "todos__sort-option open" : "todos__sort-option";
   const dropdownCLass = isOpen
     ? "todos__sort-dropdown open"
-    : "todos__sort-dropdown";
+    : "todos__sort-dropdown disabled";
 
   return (
     <div data-theme={theme} className="todos__sort-inner">
@@ -41,7 +41,7 @@ function TodoSorting(props) {
         <div
           data-theme={theme}
           className={dropdownCLass}
-          aria-disabled={isOpen}
+          aria-disabled={!isOpen}
           ref={dropdownRef}
         >
           <div
@@ -76,6 +76,7 @@ function TodoSorting(props) {
   function handleOptionClick(sort) {
     onChange(sort);
     setSortTodos(sort);
+
     handleOpenClick();
   }
 }

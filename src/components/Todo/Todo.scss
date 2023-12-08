@@ -11,7 +11,7 @@
 
     border-radius: 10px;
 
-    transition: background-color $transition-lengh ease-in-out;
+    transition: background-color $transition-length ease-in-out;
 
     &.removed {
       animation: remove 1s 1;
@@ -57,7 +57,7 @@
     align-items: center;
     gap: 20px;
 
-    transition: background-color $transition-lengh ease-in-out;
+    transition: background-color $transition-length ease-in-out;
 
     &[data-theme="sky-blue"],
     &[data-theme="soft-pink"],
@@ -117,7 +117,7 @@
     font-family: $font-stack-main;
     font-size: 18px;
 
-    transition: background-color $transition-lengh ease-in-out;
+    transition: background-color $transition-length ease-in-out;
 
     &[data-theme="sky-blue"] {
       background-color: $sky-blue-dark;

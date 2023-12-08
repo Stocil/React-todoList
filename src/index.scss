@@ -31,7 +31,8 @@ body {
   font-size: 18px;
   font-weight: 400;
 
-  transition: background-color $transition-lengh ease-in-out;
+  transition: background-color $transition-length ease-in-out,
+    color ease-in-out $transition-length;
 
   &[data-theme="sky-blue"] {
     background-color: $sky-blue-bg;

@@ -20,8 +20,8 @@
     bottom: 10px;
 
     transition: bottom 0.2s ease-in-out, color 0.3s ease-in-out,
-      background-color $transition-lengh ease-in-out,
-      border $transition-lengh ease-in-out;
+      background-color $transition-length ease-in-out,
+      border $transition-length ease-in-out;
 
     &.selected {
       bottom: 40px;
@@ -55,7 +55,7 @@
     font-size: 18px;
 
     transition: border-color 0.3s ease-in-out,
-      background-color $transition-lengh ease-in-out;
+      background-color $transition-length ease-in-out;
 
     &[data-theme="sky-blue"] {
       background-color: $sky-blue-bg;
@@ -111,7 +111,8 @@
     height: 40px;
     font-size: 33px;
 
-    transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out,
+      color $transition-length ease-in-out;
 
     &[data-theme="deep-dark"] {
       color: $deep-dark-main;

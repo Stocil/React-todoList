@@ -1,0 +1,36 @@
+.input {
+  &__theme-button {
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    &:nth-child(1) {
+      background-color: $sky-blue-dark;
+      border: 1px solid $sky-blue-light;
+    }
+
+    &:nth-child(2) {
+      background-color: $soft-pink-dark;
+      border: 1px solid $soft-pink-light;
+    }
+
+    &:nth-child(3) {
+      background-color: $light-light;
+      border: 1px solid $light-dark;
+    }
+
+    &:nth-child(4) {
+      background-color: $deep-dark-dark;
+      border: 1px solid $deep-dark-light;
+    }
+  }
+
+  &__themes-inner {
+    margin-top: 20px;
+
+    display: flex;
+    gap: 5px;
+  }
+}

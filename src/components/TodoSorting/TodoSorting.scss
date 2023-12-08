@@ -13,7 +13,7 @@
 
     position: relative;
 
-    transition: background-color $transition-lengh ease-in-out;
+    transition: background-color $transition-length ease-in-out;
 
     &[data-theme="sky-blue"] {
       background-color: $sky-blue-light;
@@ -33,7 +33,7 @@
   }
 
   &-text {
-    transition: color $transition-lengh ease-in-out;
+    transition: color $transition-length ease-in-out;
 
     color: black;
     &[data-theme="light"] {
@@ -66,8 +66,8 @@
       bottom: 35%;
     }
 
-    transition: background-color $transition-lengh ease-in-out,
-      border $transition-lengh ease-in-out;
+    transition: background-color $transition-length ease-in-out,
+      border $transition-length ease-in-out;
 
     &[data-theme="sky-blue"] {
       border: 1px solid $sky-blue-border;
@@ -111,23 +111,11 @@
     border-radius: 20px;
 
     transition: height 0.3s ease-in-out, padding 0.3s ease-in-out,
-      background-color $transition-lengh ease-in-out,
-      border $transition-lengh ease-in-out;
+      background-color $transition-length ease-in-out,
+      border $transition-length ease-in-out;
 
-    &[data-theme="sky-blue"] {
-      background-color: $sky-blue-dark;
-    }
-
-    &[data-theme="soft-pink"] {
-      background-color: $soft-pink-light;
-    }
-
-    &[data-theme="light"] {
-      background-color: $light-light;
-    }
-
-    &[data-theme="deep-dark"] {
-      background-color: $deep-dark-dark;
+    &.disabled {
+      pointer-events: none;
     }
 
     &.open {
@@ -153,6 +141,22 @@
         background-color: $deep-dark-dark;
         border: 1px solid $deep-dark-border;
       }
+    }
+
+    &[data-theme="sky-blue"] {
+      background-color: $sky-blue-dark;
+    }
+
+    &[data-theme="soft-pink"] {
+      background-color: $soft-pink-light;
+    }
+
+    &[data-theme="light"] {
+      background-color: $light-light;
+    }
+
+    &[data-theme="deep-dark"] {
+      background-color: $deep-dark-dark;
     }
   }
 

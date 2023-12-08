@@ -55,6 +55,7 @@ export function getTodoContent(
     controlContent = (
       <div data-theme={theme} className="todo__control-box">
         <button
+          data-theme={theme}
           className="todo__edit-button"
           onClick={() => {
             toggleEditInput();
@@ -62,6 +63,7 @@ export function getTodoContent(
         ></button>
 
         <button
+          data-theme={theme}
           className="todo__remove-button"
           onClick={() => {
             onRemove(todo.id);

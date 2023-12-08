@@ -10,7 +10,7 @@
     max-width: 700px;
     border-radius: 20px;
 
-    transition: background-color $transition-lengh ease-in-out;
+    transition: background-color $transition-length ease-in-out;
 
     &[data-theme="sky-blue"] {
       background-color: $sky-blue-light;

@@ -14,7 +14,7 @@
 
       position: relative;
 
-      transition: background-color $transition-lengh ease-in-out;
+      transition: background-color $transition-length ease-in-out;
 
       &[data-theme="sky-blue"] {
         background-color: $sky-blue-light;
@@ -38,7 +38,7 @@
       z-index: 2;
       color: black;
 
-      transition: color $transition-lengh ease-in-out;
+      transition: color $transition-length ease-in-out;
 
       &.current {
         &[data-theme="light"] {
@@ -71,8 +71,8 @@
       z-index: 1;
 
       transition: transform 0.4s ease-in-out, width 0.4s ease-in-out,
-        background-color $transition-lengh ease-in-out,
-        border $transition-lengh ease-in-out;
+        background-color $transition-length ease-in-out,
+        border $transition-length ease-in-out;
 
       &[data-theme="sky-blue"] {
         border: 1px solid $sky-blue-border;
