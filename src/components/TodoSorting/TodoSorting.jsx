@@ -1,6 +1,7 @@
 import { useRef, useState, useContext } from "react";
 import PropTypes from "prop-types";
 
+import { getSelectedText } from "./utils/utils";
 import { ThemeContext } from "../../context/themeContext";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 import useLocalStorage from "../../hooks/useLocalStorage";
@@ -16,7 +17,7 @@ function TodoSorting(props) {
   const { selected, onChange } = props;
   const { setSortTodos } = useLocalStorage("sort");
 
-  const textContent = selected === "old" ? "The old first" : "New ones first";
+  const textContent = getSelectedText(selected);
   const optionClass = isOpen ? "todos__sort-option open" : "todos__sort-option";
   const dropdownCLass = isOpen
     ? "todos__sort-dropdown open"
@@ -54,6 +55,7 @@ function TodoSorting(props) {
           >
             New ones first
           </div>
+
           <div
             data-theme={theme}
             className={optionClass}
@@ -63,6 +65,28 @@ function TodoSorting(props) {
             onClick={() => handleOptionClick("old")}
           >
             The old first
+          </div>
+
+          <div
+            data-theme={theme}
+            className={optionClass}
+            aria-disabled={isOpen}
+            aria-selected={"A-Z" == selected}
+            tabIndex="-1"
+            onClick={() => handleOptionClick("A-Z")}
+          >
+            A-Z
+          </div>
+
+          <div
+            data-theme={theme}
+            className={optionClass}
+            aria-disabled={isOpen}
+            aria-selected={"Z-A" == selected}
+            tabIndex="-1"
+            onClick={() => handleOptionClick("Z-A")}
+          >
+            Z-A
           </div>
         </div>
       </div>

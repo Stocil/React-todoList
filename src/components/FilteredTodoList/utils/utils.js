@@ -9,3 +9,23 @@ export function getTodosFilteredBySearch(initialList, search) {
 
   return filteredTodos;
 }
+
+export function sortByABC(arrayList) {
+  const sortedTasks = arrayList
+    .map((todo) => {
+      return todo.task.toLowerCase();
+    })
+    .sort();
+
+  let sortedTodos = [];
+
+  for (let task of sortedTasks) {
+    arrayList.map((todo) => {
+      if (todo.task.toLowerCase() === task) {
+        sortedTodos.push(todo);
+      }
+    });
+  }
+
+  return sortedTodos;
+}

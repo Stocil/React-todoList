@@ -21,7 +21,7 @@ function FilteredTodoList(props) {
   return (
     <>
       <h2 className="todos__section-subtitle"> {content} </h2>
-      <ul data-theme={theme} className="todos__list" style={{}}>
+      <ul data-theme={theme} className="todos__list">
         {listContent}
       </ul>
     </>

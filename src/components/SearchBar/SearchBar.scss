@@ -5,10 +5,11 @@
 
     width: 700px;
 
-    background-color: $deep-dark-dark;
     border-radius: 20px;
 
     position: relative;
+
+    transition: background-color $transition-length ease-in-out;
 
     &::after {
       content: "";
@@ -25,7 +26,21 @@
       background-image: url("../../../assets/search.png");
     }
 
+    &[data-theme="sky-blue"] {
+      background-color: $sky-blue-light;
+    }
+
+    &[data-theme="soft-pink"] {
+      background-color: $soft-pink-dark;
+    }
+
+    &[data-theme="light"] {
+      background-color: $light-dark;
+    }
+
     &[data-theme="deep-dark"] {
+      background-color: $deep-dark-dark;
+
       &::after {
         background-image: url("../../../assets/searchWhite.png");
       }
@@ -39,7 +54,6 @@
 
     width: 670px;
 
-    border: 1px solid $deep-dark-dark;
     border-radius: 20px;
 
     font-family: $font-stack-main;
@@ -51,14 +65,12 @@
     &:focus {
       outline: none;
 
-      border-color: $deep-dark-main;
-
       &[data-theme="sky-blue"] {
-        border-color: $sky-blue-dark;
+        border-color: $deep-dark-dark;
       }
 
       &[data-theme="soft-pink"] {
-        border-color: $soft-pink-dark;
+        border-color: $deep-dark-dark;
       }
 
       &[data-theme="light"] {
@@ -71,9 +83,25 @@
       }
     }
 
+    &[data-theme="sky-blue"] {
+      background-color: $sky-blue-dark;
+      border: 1px solid $sky-blue-light;
+    }
+
+    &[data-theme="soft-pink"] {
+      background-color: $soft-pink-light;
+      border: 1px solid $soft-pink-light;
+    }
+
+    &[data-theme="light"] {
+      background-color: $light-light;
+      border: 1px solid $light-light;
+    }
+
     &[data-theme="deep-dark"] {
       color: $deep-dark-main;
       background-color: $deep-dark-light;
+      border: 1px solid $deep-dark-dark;
     }
   }
 }

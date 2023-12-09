@@ -2,12 +2,24 @@ import Todo from "../../Todo/Todo";
 import { TodoContext } from "../../../context/tasksContextReducer";
 import { useContext } from "react";
 
-import { getTodosFilteredBySearch } from "../utils/utils";
+import { getTodosFilteredBySearch, sortByABC } from "../utils/utils";
 
 function useFilterTodo(isComplite, sortBy, search) {
   const initialList = useContext(TodoContext);
 
-  const filteredList = getTodosFilteredBySearch(initialList, search);
+  const filteredBySearchList = getTodosFilteredBySearch(initialList, search);
+
+  let filteredList;
+
+  // TODO: change sortByABC to function for all All kind of sort
+
+  if (sortBy === "A-Z") {
+    filteredList = sortByABC(filteredBySearchList);
+  } else if (sortBy === "Z-A") {
+    filteredList = sortByABC(filteredBySearchList).reverse();
+  } else {
+    filteredList = filteredBySearchList;
+  }
 
   if (!isComplite) {
     const todos = filteredList

@@ -27,7 +27,7 @@
       bottom: 45px;
 
       &[data-theme="sky-blue"] {
-        color: $sky-blue-dark;
+        color: $sky-blue-border;
       }
 
       &[data-theme="soft-pink"] {
@@ -78,7 +78,7 @@
       outline: none;
 
       &[data-theme="sky-blue"] {
-        border-color: $sky-blue-dark;
+        border-color: $sky-blue-border;
       }
 
       &[data-theme="soft-pink"] {
