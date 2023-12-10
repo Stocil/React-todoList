@@ -34,6 +34,7 @@ function tasksReducer(tasks, action) {
           task: action.task,
           done: false,
           date: null,
+          lastChange: new Date().getTime(),
         },
       ];
     }
@@ -51,6 +52,7 @@ function tasksReducer(tasks, action) {
             ...task,
             done: !task.done,
             date: action.date,
+            lastChange: new Date().getTime(),
           };
         } else {
           return task;

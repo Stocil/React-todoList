@@ -10,22 +10,54 @@ export function getTodosFilteredBySearch(initialList, search) {
   return filteredTodos;
 }
 
-export function sortByABC(arrayList) {
-  const sortedTasks = arrayList
-    .map((todo) => {
-      return todo.task.toLowerCase();
-    })
-    .sort();
+export function getSortedTodos(arrayList, sortBy) {
+  if (sortBy === "A-Z" || sortBy === "Z-A") {
+    const sortedTasks = arrayList
+      .map((todo) => {
+        return todo.task.toLowerCase();
+      })
+      .sort();
 
-  let sortedTodos = [];
+    let sortedTodos = [];
 
-  for (let task of sortedTasks) {
-    arrayList.map((todo) => {
-      if (todo.task.toLowerCase() === task) {
-        sortedTodos.push(todo);
-      }
-    });
+    for (let task of sortedTasks) {
+      arrayList.map((todo) => {
+        if (todo.task.toLowerCase() === task) {
+          sortedTodos.push(todo);
+        }
+      });
+    }
+
+    if (sortBy === "A-Z") {
+      return sortedTodos;
+    } else if (sortBy === "Z-A") {
+      return sortedTodos.reverse();
+    }
   }
 
-  return sortedTodos;
+  // By change date
+
+  if (sortBy === "new" || sortBy === "old") {
+    const sortedTasks = arrayList
+      .map((todo) => {
+        return todo.lastChange;
+      })
+      .sort();
+
+    let sortedTodos = [];
+
+    for (let dates of sortedTasks) {
+      arrayList.map((todo) => {
+        if (todo.lastChange === dates) {
+          sortedTodos.push(todo);
+        }
+      });
+    }
+
+    if (sortBy === "new") {
+      return [].concat(sortedTodos).reverse();
+    } else if (sortBy === "old") {
+      return sortedTodos;
+    }
+  }
 }

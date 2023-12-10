@@ -2,24 +2,13 @@ import Todo from "../../Todo/Todo";
 import { TodoContext } from "../../../context/tasksContextReducer";
 import { useContext } from "react";
 
-import { getTodosFilteredBySearch, sortByABC } from "../utils/utils";
+import { getTodosFilteredBySearch, getSortedTodos } from "../utils/utils";
 
 function useFilterTodo(isComplite, sortBy, search) {
   const initialList = useContext(TodoContext);
 
   const filteredBySearchList = getTodosFilteredBySearch(initialList, search);
-
-  let filteredList;
-
-  // TODO: change sortByABC to function for all All kind of sort
-
-  if (sortBy === "A-Z") {
-    filteredList = sortByABC(filteredBySearchList);
-  } else if (sortBy === "Z-A") {
-    filteredList = sortByABC(filteredBySearchList).reverse();
-  } else {
-    filteredList = filteredBySearchList;
-  }
+  const filteredList = getSortedTodos(filteredBySearchList, sortBy);
 
   if (!isComplite) {
     const todos = filteredList
@@ -32,10 +21,6 @@ function useFilterTodo(isComplite, sortBy, search) {
         return <Todo todo={todo} key={todo.id} />;
       });
 
-    if (sortBy === "new") {
-      return todos.reverse();
-    }
-
     return todos;
   } else {
     const todos = filteredList
@@ -47,10 +32,6 @@ function useFilterTodo(isComplite, sortBy, search) {
       .map((todo) => {
         return <Todo todo={todo} key={todo.id} />;
       });
-
-    if (sortBy === "new") {
-      return todos.reverse();
-    }
 
     return todos;
   }
