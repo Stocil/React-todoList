@@ -23,7 +23,7 @@ function useLocalStorage(key) {
 
   function getTheme() {
     const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) : "sky-blue";
+    return item ? JSON.parse(item) : "deep-dark";
   }
 
   return {
