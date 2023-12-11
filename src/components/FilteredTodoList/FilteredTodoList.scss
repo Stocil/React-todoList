@@ -21,6 +21,7 @@
     }
 
     &[data-theme="light"] {
+      color: $light-light;
       background-color: $light-dark;
     }
 
