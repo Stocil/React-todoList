@@ -23,7 +23,7 @@
       width: 24px;
       height: 24px;
 
-      background-image: url("../../../assets/search.png");
+      background-image: url("/assets/search.png");
     }
 
     &[data-theme="sky-blue"] {
@@ -42,7 +42,7 @@
       background-color: $deep-dark-dark;
 
       &::after {
-        background-image: url("../../../assets/searchWhite.png");
+        background-image: url("/assets/searchWhite.png");
       }
     }
   }

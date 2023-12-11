@@ -13,7 +13,12 @@ function FilteredTodoList(props) {
   let listContent;
 
   if (tasks.length === 0) {
-    listContent = "The list is empty";
+    listContent = (
+      <li data-theme={theme} className="todo__empty-item">
+        {" "}
+        The list is empty{" "}
+      </li>
+    );
   } else {
     listContent = tasks;
   }

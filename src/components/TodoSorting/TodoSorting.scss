@@ -46,6 +46,8 @@
   }
 
   &-selected {
+    user-select: none;
+
     padding: 10px 30px 10px 10px;
 
     border-radius: 20px;
@@ -59,7 +61,7 @@
       width: 16px;
       height: 16px;
 
-      background-image: url("../../../assets/arrow-down.png");
+      background-image: url("/assets/arrow-down.png");
 
       position: absolute;
       right: 22px;
@@ -171,6 +173,7 @@
       color 0.3s ease-in-out;
 
     &.open {
+      user-select: none;
       opacity: 1;
     }
 

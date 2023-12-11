@@ -34,6 +34,12 @@
     }
   }
 
+  &__empty-item {
+    &[data-theme="light"] {
+      color: $light-light;
+    }
+  }
+
   &__text {
     display: flex;
     align-self: end;
@@ -80,10 +86,10 @@
     width: 32px;
     height: 32px;
 
-    background-image: url("../../../assets/trash.png");
+    background-image: url("/assets/trash.png");
 
     &:hover {
-      background-image: url("../../../assets/trashRed.png");
+      background-image: url("/assets/trashRed.png");
     }
   }
 
@@ -96,7 +102,7 @@
     width: 32px;
     height: 32px;
 
-    background-image: url("../../../assets/editing.png");
+    background-image: url("/assets/editing.png");
     background-repeat: no-repeat;
     background-position: center;
 
@@ -151,7 +157,7 @@
     width: 32px;
     height: 32px;
 
-    background-image: url("../../../assets/save.png");
+    background-image: url("/assets/save.png");
     background-repeat: no-repeat;
     background-position: center;
 
