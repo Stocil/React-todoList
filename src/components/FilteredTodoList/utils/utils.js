@@ -18,13 +18,20 @@ export function getSortedTodos(arrayList, sortBy) {
       })
       .sort();
 
-    const sortedTasksId = arrayList
-      .map((todo) => {
-        return todo.id;
-      })
-      .sort();
+    const sortedTasksId = [];
 
-    let sortedTodos = [];
+    for (let task of sortedTasks) {
+      arrayList.map((todo) => {
+        if (
+          todo.task.toLowerCase() === task &&
+          !sortedTasksId.includes(todo.id)
+        ) {
+          sortedTasksId.push(todo.id);
+        }
+      });
+    }
+
+    const sortedTodos = [];
 
     for (let id of sortedTasksId) {
       arrayList.map((todo) => {
