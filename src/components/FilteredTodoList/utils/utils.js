@@ -18,11 +18,17 @@ export function getSortedTodos(arrayList, sortBy) {
       })
       .sort();
 
+    const sortedTasksId = arrayList
+      .map((todo) => {
+        return todo.id;
+      })
+      .sort();
+
     let sortedTodos = [];
 
-    for (let task of sortedTasks) {
+    for (let id of sortedTasksId) {
       arrayList.map((todo) => {
-        if (todo.task.toLowerCase() === task) {
+        if (todo.id === id) {
           sortedTodos.push(todo);
         }
       });
