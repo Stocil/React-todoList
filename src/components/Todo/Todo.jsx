@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, memo } from "react";
 import PropTypes from "prop-types";
 
 import { ThemeContext } from "../../context/themeContext";
@@ -8,9 +8,10 @@ import { getTodoContent } from "./utils/utils";
 
 import TodoChekbox from "../TodoCheckbox/TodoCheckbox";
 
-function Todo(props) {
+const Todo = memo(function Todo(props) {
   const { todo } = props;
 
+  console.log(todo);
   const [task, setTask] = useState(todo.task);
   const [isEdit, setIsEdit] = useState(false);
   const dispatch = useContext(TodoDispatchContext);
@@ -42,7 +43,7 @@ function Todo(props) {
       {controlContent}
     </li>
   );
-}
+});
 
 Todo.propTypes = {
   complite: PropTypes.string,
