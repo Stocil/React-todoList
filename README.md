@@ -8,14 +8,5 @@
 
 -SCSS, Js, React, BEM
 
-Learn how to use:
-
-- React state
-- React reducer + React context
-- React effect
-- React ref
-- React memo
-- Create react custom Hooks
-
 Test:
 https://stocil.github.io/React-todoList/
